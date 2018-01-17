@@ -33,8 +33,9 @@ target_link_libraries(PRACTICAL_1 sfml-graphics)
 
 
 ### Practical 2 ###
-#file(GLOB_RECURSE SOURCES practical_2/*.cpp practical_2/*.h)#
-#add_executable(practical_2 ${SOURCES})#
-#target_include_directories(practical_2 SYSTEM PRIVATE ${SFML_INCS})#
-#target_link_libraries(practical_2 smfl_graphics)#
+file(GLOB_RECURSE SOURCES practical_2/*.cpp practical_2/*.h)
+add_executable(practical_2 ${SOURCES})
+target_include_directories(practical_2 SYSTEM PRIVATE ${SFML_INCS})
+target_link_libraries(practical_2 sfml_graphics)
+set_target_properties(practical_2 PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$(Configuration))
 
