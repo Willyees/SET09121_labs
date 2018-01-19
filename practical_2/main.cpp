@@ -1,5 +1,6 @@
 #include "ship.h"
 #include "game.h"
+#include "bullet.h"
 #include <iostream>
 using namespace sf;
 using namespace std;
@@ -8,6 +9,12 @@ vector<Ship*>ships;
 Invader invader;
 Sprite sprite;
 Texture spritesheet;
+Player player;
+
+const Keyboard::Key controls[2]{
+	Keyboard::Left,
+	Keyboard::Right
+};
 
 void Update(RenderWindow &window) {
 	static Clock clock;
@@ -15,7 +22,7 @@ void Update(RenderWindow &window) {
 	for (auto &s : ships) {
 		s->Update(dt);
 	}
-
+	player.Update(dt);
 	//check and consume events
 	Event event;
 	while (window.pollEvent(event)) {
@@ -35,20 +42,21 @@ void Render(RenderWindow &window) {
 	for (const auto s : ships) {
 		window.draw(*s);
 	}
+	window.draw(player);
 }
 
 void Load() {
 	//creating list of invaders
 	for(int i = 0; i < invaders_rows; i++){
 		for (int j = 0; j < invaders_columns; j++) {
-			Invader* inv = new Invader(sf::IntRect(32 * i, 0,32 , 32), { 100.0f + j*50.0f,100.0f + i*50.0f});
+			Invader* inv = new Invader(sf::IntRect(32 * i, 0,32 , 32), { 100.0f + j*50.0f,10.0f + i*50.0f});
 			ships.push_back(inv);
 		}
 	}
-	if (!spritesheet.loadFromFile("res/img/invaders_sheet.png")) {
+	if (!spritesheet.loadFromFile("bin/Debug/res/img/invaders_sheet.png")) {
 		cerr << "Failed to load spritesheet!" << endl;
 	}
-	
+	Player* player = new Player();
 	
 }
 
