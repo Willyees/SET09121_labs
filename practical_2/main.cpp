@@ -9,7 +9,7 @@ vector<Ship*>ships;
 Invader invader;
 Sprite sprite;
 Texture spritesheet;
-Player player;
+Player* player;
 
 const Keyboard::Key controls[2]{
 	Keyboard::Left,
@@ -22,7 +22,8 @@ void Update(RenderWindow &window) {
 	for (auto &s : ships) {
 		s->Update(dt);
 	}
-	player.Update(dt);
+	Bullet::Update(dt);
+	
 	//check and consume events
 	Event event;
 	while (window.pollEvent(event)) {
@@ -42,7 +43,8 @@ void Render(RenderWindow &window) {
 	for (const auto s : ships) {
 		window.draw(*s);
 	}
-	window.draw(player);
+	Bullet::Render(window);
+	
 }
 
 void Load() {
@@ -56,7 +58,8 @@ void Load() {
 	if (!spritesheet.loadFromFile("bin/Debug/res/img/invaders_sheet.png")) {
 		cerr << "Failed to load spritesheet!" << endl;
 	}
-	Player* player = new Player();
+	player = new Player();
+	ships.push_back(player);
 	
 }
 
