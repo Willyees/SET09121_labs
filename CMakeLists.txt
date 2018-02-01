@@ -43,3 +43,16 @@ add_custom_target(copy_resources ALL COMMAND ${CMAKE_COMMAND}
   "${PROJECT_SOURCE_DIR}/res"
   ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$<CONFIGURATION>/res)
 add_dependencies(practical_2 copy_resources)
+
+### Practical 3 ##
+file(GLOB_RECURSE SOURCES practical_3/*.cpp practical_3/*.h)
+add_executable(practical_3 ${SOURCES})
+target_include_directories(practical_3 SYSTEM PRIVATE ${SFML_INCS})
+target_link_libraries(practical_3 sfml-graphics lib_tile_level_loader)
+
+##Tile loader lib
+file(GLOB_RECURSE SOURCE_FILES lib_tile_level_loader/*.cpp lib_tile_level_loader/*.h)
+add_library(lib_tile_level_loader STATIC ${SOURCE_FILES})
+target_include_directories(lib_tile_level_loader INTERFACE
+		$"{CMAKE_SOURCE_DIR}/lib_tile_level_loader/" SYSTEM PRIVATE ${SFML_INCS})
+target_link_libraries(lib_tile_level_loader sfml-graphics)
