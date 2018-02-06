@@ -9,14 +9,14 @@ using namespace sf;
 Player* player;
 void Load() {
 	player = new Player();
-	//player->setPosition()
-	ls::loadLevelFile("res/maze.txt");
+	player->setPosition(Vector2f(150.f,150.f));
+	ls::loadLevelFile("res/maze_2.txt");
 	//print level to console
-	/*for (size_t y = 0; y < ls::getHeight(); ++y) {
+	for (size_t y = 0; y < ls::getHeight(); ++y) {
 		for (size_t x = 0; x < ls::getWidth(); ++x) {
 			cout << ls::getTile({ x,y });
 		}
-	}*/
+	}
 }
 void Update(RenderWindow &window) {
 	static Clock clock;
@@ -37,6 +37,7 @@ void Update(RenderWindow &window) {
 	}
 }
 void Render(RenderWindow &window) {
+	ls::render(window);
 	player->render(window);
 }
 

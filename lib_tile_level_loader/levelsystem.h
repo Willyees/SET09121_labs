@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <maths.h>
 
 #define ls LevelSystem
 
@@ -30,6 +31,7 @@ protected:
 	static float _tileSize;
 	static std::map<TILE, sf::Color> _colours;
 	static std::vector<std::unique_ptr<sf::RectangleShape>> _sprites;
+	static sf::Vector2f _offset;
 	
 	static void buildSprites();
 

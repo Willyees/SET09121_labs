@@ -1,6 +1,7 @@
 #include "levelsystem.h"
 #include <fstream>
 #include <iostream>
+#include <maths.h>
 
 
 using namespace std;
@@ -9,6 +10,7 @@ using namespace sf;
 unique_ptr<LevelSystem::TILE[]> LevelSystem::_tiles;
 size_t LevelSystem::_width;
 size_t LevelSystem::_height;
+Vector2f LevelSystem::_offset = Vector2f{ 0 , 0};
 
 size_t LevelSystem::getHeight() {
 	return _height;

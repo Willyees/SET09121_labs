@@ -4,16 +4,24 @@ using namespace std;
 
 void Player::update(double dt) {
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
-		move(Vector2f(0,-_speed * dt));
+		Vector2f pos = Vector2f(0, -_speed * dt) + _position + Vector2f(0, -25);
+		if(validMove(pos))
+			move(Vector2f(0, -_speed * dt));
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::A)) {
-		move(Vector2f( -_speed * dt, 0));
+		Vector2f pos = Vector2f(-_speed * dt, 0) + _position + Vector2f(-25,0);
+		if(validMove(pos))
+			move(Vector2f(-_speed * dt, 0));
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::S)) {
-		move(Vector2f(0, _speed * dt));
+		Vector2f pos = Vector2f(0, _speed * dt) + _position + Vector2f(0, 25);
+		if (validMove(pos))
+			move(Vector2f(0, _speed * dt));
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::D)) {
-		move(Vector2f( _speed * dt, 0));
+		Vector2f pos = Vector2f(_speed * dt, 0) + _position + Vector2f(25, 0);
+		if (validMove(pos))
+			move(Vector2f(_speed * dt, 0));
 	}
 	Entity::update(dt);
 }
@@ -27,4 +35,8 @@ Player::Player()
 
 void Player::render(sf::RenderWindow &window) const {
 	window.draw(*_shape);
+}
+
+bool Player::validMove(sf::Vector2f pos) {
+	return (ls::getTileAt(pos) != ls::WALL);
 }

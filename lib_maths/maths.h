@@ -1,13 +1,11 @@
 #pragma once
-#define _USE_MATH_DEFINES
 #include <SFML/System.hpp>
-#include <cmath>
 #include <iostream>
 #include <vector>
-
+#include <cmath>
 
 namespace sf {
-	M_PI
+	double const pi = 3.14;
 	//create definition sf::vector using size_t type
 	typedef Vector2<size_t> Vector2ul;
 	//returns length of sf::vector
@@ -33,5 +31,19 @@ namespace sf {
 	//Degrees to radians conversion
 	static double deg2rad(double degrees) {
 		return degrees * pi / 180;
+	}
+	//Rotate a sf::vector by an angle(degrees)
+	template <typename T>
+	Vector2<T> rotate(const Vector2<T> &v, const double degrees) {
+		const double theta = deg2rad(degrees);
+		const double cs = cos(theta);
+		const double sn = sin(theta);
+		return { (T)(v.x * cs - v.y * sn), (T)(v.x * sn + v.y* cs) };
+	}
+	//Allow sf::vectors to be cout'ed
+	template <typename T>
+	std::ostream &operator<<(std::ostream &os, const Vector2<T> &v) {
+		os << '(' << v.x << ',' << v.y << ')';
+		return os;
 	}
 }
