@@ -1,5 +1,7 @@
 #include "entity.h"
 #include "player.h"
+#include "levelsystem.h"
+#include <iostream>
 
 using namespace std;
 using namespace sf;
@@ -8,6 +10,13 @@ Player* player;
 void Load() {
 	player = new Player();
 	//player->setPosition()
+	ls::loadLevelFile("res/maze.txt");
+	//print level to console
+	/*for (size_t y = 0; y < ls::getHeight(); ++y) {
+		for (size_t x = 0; x < ls::getWidth(); ++x) {
+			cout << ls::getTile({ x,y });
+		}
+	}*/
 }
 void Update(RenderWindow &window) {
 	static Clock clock;

@@ -20,7 +20,9 @@ public:
 	static sf::Vector2f getTilePosition(sf::Vector2ul);
 	//get the tile at screenspacepos
 	static TILE getTileAt(sf::Vector2f);
-	
+	static size_t getHeight();
+	static size_t getWidth();
+
 protected:
 	static std::unique_ptr<TILE[]> _tiles;
 	static size_t _width;
