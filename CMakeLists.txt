@@ -65,3 +65,9 @@ target_sources(lib_maths INTERFACE
 	"${CMAKE_SOURCE_DIR}/lib_maths/maths.h" )
 target_include_directories(lib_maths INTERFACE "${CMAKE_SOURCE_DIR}/lib_maths"
 	SYSTEM INTERFACE ${SFML_INCS})
+
+## Practical_4
+file(GLOB_RECURSE SOURCES practical_4/*.h practical_4/*.cpp)
+add_executable(practical_4 ${SOURCES})
+target_include_directories(practical_4 SYSTEM PRIVATE ${SFML_INCS})
+target_link_libraries(practical_4 sfml-graphics)
