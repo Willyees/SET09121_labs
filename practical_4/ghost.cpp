@@ -6,7 +6,7 @@ using namespace sf;
 
 void Ghost::update(const double dt) {
 	Entity::update(dt);
-	
+
 }
 
 void Ghost::render(sf::RenderWindow &window) const {

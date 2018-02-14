@@ -15,10 +15,10 @@ void Load() {
 	entities.push_back(player);
 	for (int i = 0; i < 4; i++)
 	{
-		Ghost* ghost = new Ghost(new Vector2f(100,100));
+		Ghost* ghost = new Ghost(new Vector2f(100, 100));
 		entities.push_back(ghost);
 	}
-	
+
 }
 
 void Update(RenderWindow &window) {
