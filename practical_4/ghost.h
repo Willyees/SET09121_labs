@@ -1,7 +1,7 @@
 #pragma once
 #include "entity.h"
 
-class Ghost : public Entity{
+class Ghost : public Entity{ 
 private:
 	float _speed;
 	int randNumx = 0;

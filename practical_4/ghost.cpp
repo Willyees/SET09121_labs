@@ -1,4 +1,5 @@
 #include "ghost.h"
+#include "system_renderer.h"
 #include <iostream>
 
 using namespace std;
@@ -10,7 +11,7 @@ void Ghost::update(const double dt) {
 }
 
 void Ghost::render(sf::RenderWindow &window) const {
-	window.draw(*_shape);
+	Renderer::queue(&*_shape); 
 }
 
 Ghost::Ghost(Vector2f* pos) :_speed(200.f), Entity(make_unique<CircleShape>(20.f)) {

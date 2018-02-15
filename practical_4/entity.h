@@ -5,7 +5,7 @@
 
 class Entity {
 protected:
-	std::unique_ptr<sf::Shape> _shape;
+	std::unique_ptr<sf::Shape> _shape; 
 	sf::Vector2f _position;
 	Entity(std::unique_ptr<sf::Shape> shp);
 public:
@@ -17,7 +17,4 @@ public:
 	virtual void render(sf::RenderWindow &window) const = 0;
 	void move(const sf::Vector2f &pos);
 	bool validMove(const sf::Vector2f &pos);
-	
-	
-	
 };

@@ -1,4 +1,5 @@
 #include "player.h"
+#include "system_renderer.h"
 #include <iostream>
 
 using namespace sf;
@@ -31,5 +32,5 @@ Player::Player()
 
 
 void Player::render(RenderWindow &window) const{
-	window.draw(*_shape);
+	Renderer::queue(&*_shape); 
 }
