@@ -1,3 +1,4 @@
+/*
 #include "ghost.h"
 #include "system_renderer.h"
 #include <iostream>
@@ -19,3 +20,4 @@ Ghost::Ghost(Vector2f* pos) :_speed(200.f), Entity(make_unique<CircleShape>(20.f
 	_shape->setOrigin(Vector2f(25.f, 25.f));
 	_position = *pos;
 }
+*/

@@ -1,5 +1,7 @@
+/*
 #pragma once
-#include "entity.h"
+#include "ecm.h"
+#include <SFML/Graphics.hpp>
 
 class Ghost : public Entity{ 
 private:
@@ -11,3 +13,4 @@ public:
 	Ghost(sf::Vector2f* pos);
 	virtual void render(sf::RenderWindow &window) const;
 };
+*/

@@ -1,4 +1,5 @@
 #pragma once
+/*
 #include <SFML\Graphics.hpp>
 #include <memory>
 
@@ -18,3 +19,4 @@ public:
 	void move(const sf::Vector2f &pos);
 	bool validMove(const sf::Vector2f &pos);
 };
+*/

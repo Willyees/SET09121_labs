@@ -1,3 +1,4 @@
+/*
 #include "player.h"
 #include "system_renderer.h"
 #include <iostream>
@@ -34,3 +35,4 @@ Player::Player()
 void Player::render(RenderWindow &window) const{
 	Renderer::queue(&*_shape); 
 }
+*/

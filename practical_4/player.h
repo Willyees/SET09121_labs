@@ -1,9 +1,10 @@
+/*
 #pragma once
 #include "SFML\Graphics.hpp"
-#include "entity.h"
+#include "ecm.h"
 
 
-class Player : public Entity {
+class Player : public Ghost {
 private:
 	float _speed;
 public:
@@ -11,3 +12,4 @@ public:
 	Player();
 	virtual void render(sf::RenderWindow &window) const;
 };
+*/

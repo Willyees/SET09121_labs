@@ -1,3 +1,4 @@
+#include "..\lib_ecm\ecm.h"
 #pragma once
 
 #include <SFML/Graphics.hpp>

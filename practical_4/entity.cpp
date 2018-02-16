@@ -1,3 +1,4 @@
+/*
 #include "entity.h"
 
 
@@ -19,3 +20,4 @@ bool Entity::validMove(const sf::Vector2f &pos) {
 	return false;
 }
 Entity::Entity(std::unique_ptr<sf::Shape> s) : _shape(std::move(s)) {}
+*/
