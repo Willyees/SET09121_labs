@@ -70,7 +70,7 @@ target_include_directories(lib_maths INTERFACE "${CMAKE_SOURCE_DIR}/lib_maths"
 file(GLOB_RECURSE SOURCES practical_4/*.h practical_4/*.cpp)
 add_executable(practical_4 ${SOURCES})
 target_include_directories(practical_4 SYSTEM PRIVATE ${SFML_INCS})
-target_link_libraries(practical_4 sfml-graphics lib_ecm) 
+target_link_libraries(practical_4 sfml-graphics lib_ecm lib_tile_level_loader) 
 set_target_properties(practical_4 
 	 PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY
 	 ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$(Configuration))

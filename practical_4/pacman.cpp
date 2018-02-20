@@ -5,6 +5,8 @@
 #include "player.h"
 #include "system_renderer.h"
 #include "cmp_sprite.h"
+#include "cmp_player_movement.h"
+#include "cmp_ghost_movement.h"
 #include <iostream>
 #include <memory>
 
@@ -76,10 +78,12 @@ void GameScene::load() {
 	{
 		auto pl = make_shared<Entity>();
 
+		pl->addComponent<PlayerMovementComponent>();
 		auto s = pl->addComponent<ShapeComponent>();
 		s->setShape<sf::CircleShape>(12.f);
 		s->getShape().setFillColor(Color::Yellow);
 		s->getShape().setOrigin(Vector2f(12.f, 12.f));
+		pl->setPosition(Vector2f(100.0f, 100.0f));
 
 		_ents.list.push_back(pl);
 	}
@@ -92,6 +96,7 @@ void GameScene::load() {
 
 	for (int i = 0; i < GHOSTS_COUNT; i++) {
 		auto ghost = make_shared<Entity>();
+		ghost->addComponent<GhostMovementComponent>();
 		auto s = ghost->addComponent<ShapeComponent>();
 		s->setShape<sf::CircleShape>(12.f);
 		s->getShape().setFillColor(ghost_col[i % 4]);
