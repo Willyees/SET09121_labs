@@ -16,6 +16,7 @@ void Load() {
 	menuScene.reset(new MenuScene());
 	gameScene->load();
 	menuScene->load();
+
 	//Start at main menu
 	activeScene = menuScene;
 
@@ -47,7 +48,7 @@ void Render(RenderWindow &window) {
 }
 
 int main() {
-	RenderWindow window(VideoMode(800, 600), "MR. Pacman");
+	RenderWindow window(VideoMode(1200, 800), "MR. Pacman");
 	Renderer::initialise(window);
 	
 	Load();

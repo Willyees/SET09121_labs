@@ -15,6 +15,7 @@ void GhostMovementComponent::update(double dt){
 	if (Keyboard::isKeyPressed(Keyboard::Down)) {
 		move(Vector2f(0, dt * _speed));
 	}
+	move(_speed * dt, 0);
 }
 
 void GhostMovementComponent::render() {}

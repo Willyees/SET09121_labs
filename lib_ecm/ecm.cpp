@@ -1,6 +1,6 @@
 #include "ecm.h"
 
-Entity::Entity()
+Entity::Entity() : _fordeletion(false)
 {
 }
 
@@ -73,7 +73,7 @@ void Entity::setVisibile(bool _visible)
 
 //Component
 Component::Component(Entity* const p) : _parent(p) {
-	//todo
+	//setting the _parent as p
 
 }
 

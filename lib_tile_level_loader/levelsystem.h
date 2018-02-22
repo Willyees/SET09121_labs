@@ -23,6 +23,7 @@ public:
 	static TILE getTileAt(sf::Vector2f);
 	static size_t getHeight();
 	static size_t getWidth();
+	static std::vector<sf::Vector2ul> findTiles(TILE);
 
 protected:
 	static std::unique_ptr<TILE[]> _tiles;

@@ -1,5 +1,7 @@
 #include <memory>
 #include "scene.h"
+
+
 extern std::shared_ptr<Scene> gameScene;
 extern std::shared_ptr<Scene> menuScene;
 extern std::shared_ptr<Scene> activeScene;
@@ -21,8 +23,11 @@ private:
 	sf::Clock scoreClock; 
 	void respawn();
 public:
+	std::shared_ptr<Entity> makeNibble(const sf::Vector2ul& nl, bool big);
 	GameScene() = default;
 	void update(double dt) override;
 	void render() override;
 	void load() override;
 };
+
+

@@ -31,8 +31,18 @@ public:
 	void setForDelete();
 	bool isVisible() const;
 	void setVisibile(bool _visible);
-	/*void move(const sf::Vector2f &pos);
-	bool validMove(const sf::Vector2f &pos);*/
+		
+	template <typename P>
+	P* GetCompatibleComponent() {
+		for (auto value : _components) {
+			if (P* cmp = dynamic_cast<P*>(value.get())) {
+				//std::shared_ptr<P> ret(cmp);
+				return cmp;
+			}
+				
+		}
+		return nullptr;
+	}
 
 	template <typename T, typename... Targs>
 	//implementing in .h, might better to do in .cpp

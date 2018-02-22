@@ -20,11 +20,26 @@ size_t LevelSystem::getWidth() {
 	return _width;
 }
 
+std::vector<sf::Vector2ul> LevelSystem::findTiles(TILE tile)
+{
+	
+	vector<Vector2ul> tilesRequested;
+	for (size_t i = 0; i < _width; i++) {
+		for (size_t j = 0; j < _height; j++) {
+			if (getTile(Vector2ul(i, j)) == tile) {
+				tilesRequested.push_back(Vector2ul(i, j));
+			}
+		}
+		
+	}
+	return tilesRequested;
+}
+
 float LevelSystem::_tileSize(100.f);
 vector<std::unique_ptr<sf::RectangleShape>> LevelSystem::_sprites;
 
 map<LevelSystem::TILE, sf::Color> LevelSystem::_colours{
-	{WALL, Color::White}, {END, Color::Red}
+	{WALL, Color::White}, {END, Color::Red}, {ENEMY, Color::Yellow}, { WAYPOINT, Color::Green}
 };
 
 sf::Color LevelSystem::getColor(LevelSystem::TILE t) {	
@@ -52,6 +67,7 @@ void LevelSystem::loadLevelFile(const std::string &path, float tileSize) {
 	
 	//Load in file to buffer
 	ifstream f(path);
+	
 	if (f.good()) {
 		f.seekg(0, std::ios::end);
 		buffer.resize(f.tellg());
@@ -68,6 +84,9 @@ void LevelSystem::loadLevelFile(const std::string &path, float tileSize) {
 	for (int i = 0; i < buffer.size(); ++i) {
 		const char c = buffer[i];
 		switch (c) {
+		case 'n':
+			temp_tiles.push_back(ENEMY);
+			break;
 		case 'w':
 			temp_tiles.push_back(WALL);
 			break;

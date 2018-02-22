@@ -13,8 +13,7 @@ ActorMovementComponent::ActorMovementComponent(Entity* p)
 }
 
 bool ActorMovementComponent::validMove(const Vector2f& pos) {
-	return (true);//no tiles atm on game
-	//(LevelSystem::getTileAt(pos) != LevelSystem::WALL);
+	return (LevelSystem::getTileAt(pos) != LevelSystem::WALL);
 }
 
 
