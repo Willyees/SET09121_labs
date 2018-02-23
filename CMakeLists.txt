@@ -80,3 +80,16 @@ file(GLOB_RECURSE SOURCE_FILES lib_ecm/*.cpp lib_ecm/*.h)
 add_library(lib_ecm STATIC ${SOURCE_FILES})
 target_include_directories(lib_ecm INTERFACE "${CMAKE_SOURCE_DIR}/lib_ecm")
 target_link_libraries(lib_ecm lib_maths)
+
+#B2D - Box2d physics library
+add_subdirectory("lib/b2d/Box2D")
+#inlclude_directories
+set(B2D_INCS "lib/b2d/Box2D/")
+link_directories("${CMAKE_BINARY_DIR}/lib/sfml/lib")
+
+#physics
+file(GLOB_RECURSE SOURCES practical_5/*.cpp practical_5*.h)
+add_executable(practical_5 ${SOURCES})
+target_include_directories(practical_5 SYSTEM PRIVATE ${SFML_INCS} ${B2D_INCS})
+target_link_libraries(practical_5 Box2D sfml-graphics)
+set(EXECUTABLES ${EXECUTABLES} practical_5)
