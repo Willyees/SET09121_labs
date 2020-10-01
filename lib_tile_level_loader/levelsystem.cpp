@@ -78,8 +78,6 @@ void LevelSystem::loadLevelFile(const std::string &path, float tileSize) {
 	else {
 		throw string("Could not open level file: ") + path;
 	}
-
-
 	vector<LevelSystem::TILE> temp_tiles;
 	for (int i = 0; i < buffer.size(); ++i) {
 		const char c = buffer[i];

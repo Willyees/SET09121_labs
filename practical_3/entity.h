@@ -1,5 +1,5 @@
-#include "..\lib_ecm\ecm.h"
 #pragma once
+//#include "..\lib_ecm\ecm.h"
 
 #include <SFML/Graphics.hpp>
 #include <memory>
