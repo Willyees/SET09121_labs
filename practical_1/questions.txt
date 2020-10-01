@@ -1,0 +1,22 @@
+-CmakeList written by hand or automated?
+-Do i have to set the lib/sfml in the source code folder? Program couldnbt find it
+-Can make project wihtout cmake? xes only with visuyal studio?
+-Keyboard data type?
+-vector2f data type?
+-why using float for speed and game elements dimension?
+-CricleShape and RectangleShape where are from? sfml?
+-enchanted for loop with auto? check what is it. Accessing p as reference so can modify the paddle?
+-what is the size of the paddle in the p.setSize?
+-what is the the origin of the paddle? why calculated by /2?
+-is a vector's member accessed usign .x and .y?
+-when getting position of element, where is the 0,0 position?
+-why when checking for bouncing on the paddles it is - (paddleSize.y*0.5)
+-why is it -3 on .setSize and .setRadius?
+-not sure when checking ball bouncing on paddle why it is used the paddleSize (since the paddle is moved by 10 from left side screen
+  and when getting the ball position should not give the center of the ball? So it is needed to calculate the radius in order to understand
+  when the ball left side will touch the paddle)
+
+-how is calculated the dt?
+-pollEvent?
+-event type closed?
+-check move method attrivutes?
